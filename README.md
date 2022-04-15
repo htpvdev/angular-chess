@@ -36,6 +36,7 @@
 
 4. コマンドでコンポーネントを作成。
 - `ng generate component header`
+- (ng generate コマンドは、ng g と同じ)
 - (このコマンドで、src/app/headerディレクトリが作成され、以下のファイルが自動生成される)
   - header.component.html ----- コンポーネント内のHTMLを記述。Angularのロジック用の特殊な記述もある
   - header.component.scss ----- コンポーネント内にのみ適用されるscssスタイルシート
@@ -89,6 +90,8 @@ export class DashboardComponent implements OnInit {
 }
 ```
 
+src/styles.scssには、すべてのコンポーネントに対して影響のあるスタイルを記述できる。
+また、Angularが利用するスタイルシートの拡張子の設定も、後から変更できるらしい。
 
 
 src/ 直下の`app.module.ts`が重要。
