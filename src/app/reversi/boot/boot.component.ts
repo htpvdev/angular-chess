@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ReversiService } from '../services/reversi.service';
 
 @Component({
   selector: 'app-boot',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./boot.component.scss']
 })
 export class BootComponent implements OnInit {
+  p1type: string = '';
+  p1color: string = '';
+  p2type: string = '';
+  p2color: string = '';
 
-  constructor() { }
+  constructor(
+    private reversiService: ReversiService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  startGame(): void {
+    this.reversiService.boot();
   }
 
 }

@@ -1,0 +1,34 @@
+<ul>
+  <p>1P</p>
+  <li>
+    <select name="player_type" id="" >
+      <option value="player">プレイヤー</option>
+      <option value="cpu">CPU</option>
+    </select>
+  </li>
+  <li>
+    <p>色</p>
+    <select name="player_type" id="" #p1color>
+      <option value="black">黒</option>
+      <option value="white">白</option>
+    </select>
+  </li>
+</ul>
+<ul>
+  <p>2P</p>
+  <li>
+    <select name="player_type" id="" #p2type>
+      <option value="player">プレイヤー</option>
+      <option value="cpu">CPU</option>
+    </select>
+  </li>
+  <li>
+    <p>色</p>
+    <select name="player_type" id="" #p2color>
+      <option value="white">白</option>
+      <option value="black">黒</option>
+    </select>
+  </li>
+</ul>
+
+<button (click)="startGame();">ゲーム開始！</button>

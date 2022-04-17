@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reversi.component.scss']
 })
 export class ReversiComponent implements OnInit {
-
+  over: boolean = false;
   constructor() { }
 
   ngOnInit(): void {

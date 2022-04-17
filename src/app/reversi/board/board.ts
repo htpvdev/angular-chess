@@ -1,0 +1,88 @@
+export class Board
+{
+  field: Array<Array<{color: string, point: number}>> = [
+    [
+      { color: '', point: 0},
+      { color: '', point: 1},
+      { color: '', point: 2},
+      { color: '', point: 3},
+      { color: '', point: 4},
+      { color: '', point: 5},
+      { color: '', point: 6},
+      { color: '', point: 7},
+    ],
+    [
+      { color: '', point: 8},
+      { color: '', point: 9},
+      { color: '', point: 10},
+      { color: '', point: 11},
+      { color: '', point: 12},
+      { color: '', point: 13},
+      { color: '', point: 14},
+      { color: '', point: 15},
+    ],
+    [
+      { color: '', point: 16},
+      { color: '', point: 17},
+      { color: '', point: 18},
+      { color: '', point: 19},
+      { color: '', point: 20},
+      { color: '', point: 21},
+      { color: '', point: 22},
+      { color: '', point: 23},
+    ],
+    [
+      { color: '', point: 24},
+      { color: '', point: 25},
+      { color: '', point: 26},
+      { color: '', point: 27},
+      { color: '', point: 28},
+      { color: '', point: 29},
+      { color: '', point: 30},
+      { color: '', point: 31},
+    ],
+    [
+      { color: '', point: 32},
+      { color: '', point: 33},
+      { color: '', point: 34},
+      { color: '', point: 35},
+      { color: '', point: 36},
+      { color: '', point: 37},
+      { color: '', point: 38},
+      { color: '', point: 39},
+    ],
+    [
+      { color: '', point: 40},
+      { color: '', point: 41},
+      { color: '', point: 42},
+      { color: '', point: 43},
+      { color: '', point: 44},
+      { color: '', point: 45},
+      { color: '', point: 46},
+      { color: '', point: 47},
+    ],
+    [
+      { color: '', point: 48},
+      { color: '', point: 49},
+      { color: '', point: 50},
+      { color: '', point: 51},
+      { color: '', point: 52},
+      { color: '', point: 53},
+      { color: '', point: 54},
+      { color: '', point: 55},
+    ],
+    [
+      { color: '', point: 56},
+      { color: '', point: 57},
+      { color: '', point: 58},
+      { color: '', point: 59},
+      { color: '', point: 60},
+      { color: '', point: 61},
+      { color: '', point: 62},
+      { color: '', point: 63},
+    ],
+  ];
+
+  constructor() {
+  };
+}

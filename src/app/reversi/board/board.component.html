@@ -1,1 +1,13 @@
 <p>board works!</p>
+<table>
+  <tr *ngFor="let records of board.field">
+    <td *ngFor="let block of records">
+      <div [ngSwitch]="block.color">
+        <div *ngSwitchCase="'black'">黒</div>
+        <div *ngSwitchCase="'white'">白</div>
+        <div *ngSwitchDefault>無</div>
+        {{ block.point }}
+      </div>
+    </td>
+  </tr>
+</table>
