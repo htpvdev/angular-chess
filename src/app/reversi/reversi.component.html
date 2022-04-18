@@ -1,6 +1,6 @@
-<p>reversi works!</p>
+<p>Reversi</p>
 <a routerLink="">Topへ戻る</a>
-<div *ngIf="over; else game">
+<div *ngIf="reversi.current.status=='over'; else game">
   <app-boot></app-boot>
 </div>
 <ng-template #game>

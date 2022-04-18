@@ -4,11 +4,11 @@ import { Reversi } from '../reversi';
 @Injectable({
   providedIn: 'root'
 })
-export class ReversiService {
-  reversi: Reversi;
+export class ReversiService { 
+  public reversi: Reversi;
 
   constructor() {
-    this.reversi = new Reversi({}, {});
+    this.reversi = new Reversi({});
   }
 
   boot() :void {

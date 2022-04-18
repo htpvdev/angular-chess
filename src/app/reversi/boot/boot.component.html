@@ -1,14 +1,14 @@
 <ul>
   <p>1P</p>
   <li>
-    <select name="player_type" id="" >
+    <select name="p1_type" id="" (change)="onChangeSelect($event);" #p1type>
       <option value="player">プレイヤー</option>
       <option value="cpu">CPU</option>
     </select>
   </li>
   <li>
     <p>色</p>
-    <select name="player_type" id="" #p1color>
+    <select name="p1_color" id="" (change)="onChangeSelect($event);" #p1color>
       <option value="black">黒</option>
       <option value="white">白</option>
     </select>
@@ -17,14 +17,14 @@
 <ul>
   <p>2P</p>
   <li>
-    <select name="player_type" id="" #p2type>
+    <select name="p2_type" id="" (change)="onChangeSelect($event);" #p2type>
       <option value="player">プレイヤー</option>
       <option value="cpu">CPU</option>
     </select>
   </li>
   <li>
     <p>色</p>
-    <select name="player_type" id="" #p2color>
+    <select name="p2_color" id="" (change)="onChangeSelect($event);" #p2color>
       <option value="white">白</option>
       <option value="black">黒</option>
     </select>

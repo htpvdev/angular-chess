@@ -11,10 +11,14 @@ export class BoardComponent implements OnInit {
 
   constructor() {
     this.board = new Board;
-    this.board.field[4][3].color = 'white'
   }
 
   ngOnInit(): void {
+  }
+
+  putPiece(y: number, x: number): void {
+    this.board.field[y][x].color = 'black';
+    console.log(x, y);
   }
 
 }

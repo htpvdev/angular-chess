@@ -8,6 +8,7 @@ import { StatusComponent } from './reversi/status/status.component';
 import { BoardComponent } from './reversi/board/board.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { BootComponent } from './reversi/boot/boot.component';
+import { PieceComponent } from './reversi/board/piece/piece.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { BootComponent } from './reversi/boot/boot.component';
     BoardComponent,
     WelcomeComponent,
     BootComponent,
+    PieceComponent,
   ],
   imports: [
     BrowserModule,

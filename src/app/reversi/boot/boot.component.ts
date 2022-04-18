@@ -19,8 +19,11 @@ export class BootComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onChangeSelect(event: any): void {
+    console.log(event);
+  }
+
   startGame(): void {
     this.reversiService.boot();
   }
-
 }
