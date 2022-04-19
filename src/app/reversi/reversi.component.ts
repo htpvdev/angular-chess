@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Reversi } from './reversi';
+import { ReversiService } from './services/reversi.service';
 
 @Component({
   selector: 'app-reversi',
@@ -7,22 +7,14 @@ import { Reversi } from './reversi';
   styleUrls: ['./reversi.component.scss']
 })
 export class ReversiComponent implements OnInit {
-  reversi: Reversi
+  public reversiField: any
+  public reversiSetting: any
 
-  constructor() {
-    this.reversi = new Reversi({
-      status: 'p1',
-      p1: {
-        type: 'human',
-        side: 'white',
-        piece: 2,
-      },
-      p2: {
-        type: 'human',
-        side: 'black',
-        piece: 2,
-      },
-    })
+  constructor(
+    private reversiService: ReversiService
+  ) {
+    this.reversiField = this.reversiService.getField();
+    this.reversiSetting = this.reversiService.getSetting();
   }
 
   ngOnInit(): void {

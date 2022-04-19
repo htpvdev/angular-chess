@@ -1,34 +1,33 @@
 <ul>
   <p>1P</p>
   <li>
-    <select name="p1_type" id="" (change)="onChangeSelect($event);" #p1type>
-      <option value="player">プレイヤー</option>
-      <option value="cpu">CPU</option>
+    <select [(ngModel)]="p1_type">
+      <option [value]="'player'">プレイヤー</option>
+      <option [value]="'cpu'">CPU</option>
     </select>
   </li>
   <li>
     <p>色</p>
-    <select name="p1_color" id="" (change)="onChangeSelect($event);" #p1color>
-      <option value="black">黒</option>
-      <option value="white">白</option>
+    <select [(ngModel)]="p1_side" (change)="onChangeSelect('p1_side');">
+      <option [value]="'black'">黒</option>
+      <option [value]="'white'">白</option>
     </select>
   </li>
 </ul>
 <ul>
   <p>2P</p>
   <li>
-    <select name="p2_type" id="" (change)="onChangeSelect($event);" #p2type>
-      <option value="player">プレイヤー</option>
-      <option value="cpu">CPU</option>
+    <select [(ngModel)]="p2_type">
+      <option [value]="'player'">プレイヤー</option>
+      <option [value]="'cpu'">CPU</option>
     </select>
   </li>
   <li>
     <p>色</p>
-    <select name="p2_color" id="" (change)="onChangeSelect($event);" #p2color>
-      <option value="white">白</option>
-      <option value="black">黒</option>
+    <select [(ngModel)]="p2_side" (change)="onChangeSelect('p2_side');">
+      <option [value]="'black'">黒</option>
+      <option [value]="'white'">白</option>
     </select>
   </li>
 </ul>
-
 <button (click)="startGame();">ゲーム開始！</button>

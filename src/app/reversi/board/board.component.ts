@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Board } from './board';
+import { ReversiService } from '../services/reversi.service';
+import { ReversiType, side } from 'src/app/commonTypes';
+
 
 @Component({
   selector: 'app-board',
@@ -7,17 +9,21 @@ import { Board } from './board';
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent implements OnInit {
-  board: Board;
+  public reversi: ReversiType
 
-  constructor() {
-    this.board = new Board;
+  constructor(
+    private reversiService: ReversiService,
+  ) {
+    this.reversi = this.reversiService.init()
   }
 
   ngOnInit(): void {
+    this.reversi = this.reversiService.init()
   }
 
-  putPiece(y: number, x: number): void {
-    this.board.field[y][x].color = 'black';
+  putPiece(y: number, x: number, side: side): void {
+
+    this.reversiService.putPiece(y, x, side);
     console.log(x, y);
   }
 
