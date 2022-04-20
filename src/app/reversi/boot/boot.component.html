@@ -1,30 +1,36 @@
 <ul>
-  <p>1P</p>
+  <p>1P設定</p>
+  <label for="">プレイヤー名</label>
+  <input type="text" [(ngModel)]="p1Name" [value]="'p1Name'" placeholder="プレイヤー1">
   <li>
-    <select [(ngModel)]="p1_type">
+    <label>プレイヤー種別</label>
+    <select [(ngModel)]="p1Type">
       <option [value]="'player'">プレイヤー</option>
       <option [value]="'cpu'">CPU</option>
     </select>
   </li>
   <li>
-    <p>色</p>
-    <select [(ngModel)]="p1_side" (change)="onChangeSelect('p1_side');">
+    <label>色</label>
+    <select [(ngModel)]="p1Side" (change)="onChangeSelect('p1Side');">
       <option [value]="'black'">黒</option>
       <option [value]="'white'">白</option>
     </select>
   </li>
 </ul>
 <ul>
-  <p>2P</p>
+  <p>2P設定</p>
+  <label>プレイヤー名</label>
+  <input type="text" [(ngModel)]="p2Name" [value]="'p2Name'" placeholder="プレイヤー2">
   <li>
-    <select [(ngModel)]="p2_type">
+    <label>プレイヤー種別</label>
+    <select [(ngModel)]="p2Type">
       <option [value]="'player'">プレイヤー</option>
       <option [value]="'cpu'">CPU</option>
     </select>
   </li>
   <li>
-    <p>色</p>
-    <select [(ngModel)]="p2_side" (change)="onChangeSelect('p2_side');">
+    <label>色</label>
+    <select [(ngModel)]="p2Side" (change)="onChangeSelect('p2Side');">
       <option [value]="'black'">黒</option>
       <option [value]="'white'">白</option>
     </select>

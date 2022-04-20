@@ -1,24 +1,26 @@
 /**  */
-export type currentPlayer = 'p1'|'p2'
-/**  */
-export type status = 'boot'|'playing'|'overed'
+export type side = 'black'|'white'
 
 /**  */
-export type side =  'black'|'white'|'none'
+export type pieceSide = side|'none'
+
+/**  */
+export type status = 'boot'|'playing'|'overed'
 
 /**  */
 export type playerType = 'player'|'cpu'
 
 /**  */
 export interface setting {
-  player: currentPlayer,
+  player: side,
   status: status,
-  p1: { type: playerType, side: side, piece: number },
-  p2: { type: playerType, side: side, piece: number },
+  black: { type: playerType, playerName: string, piece: number },
+  white: { type: playerType, playerName: string, piece: number },
+  message: null|string
 }
 
 /**  */
-export type field = Array<Array<{side: side, point: number}>>
+export type field = Array<Array<{side: pieceSide, point: number}>>
 
 /**  */
 export interface ReversiType {

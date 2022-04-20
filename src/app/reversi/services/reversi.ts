@@ -3,10 +3,11 @@ import { setting, field } from "../../commonTypes"
 export class Reversi
 {
   setting: setting = {
-    player: 'p1',
+    player: 'black',
     status: 'boot',
-    p1: { type: 'player', side: 'white', piece: 2 },
-    p2: { type: 'player', side: 'black', piece: 2 }
+    black: { type: 'player', playerName: 'p1', piece: 2 },
+    white: { type: 'player', playerName: 'p2', piece: 2 },
+    message: null,
   }
 
   field: field = [

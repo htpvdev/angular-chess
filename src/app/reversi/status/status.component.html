@@ -1,1 +1,16 @@
-<p>status works!</p>
+<div *ngIf="setting.message">
+  {{ setting.message }}
+</div>
+<div [ngSwitch]="setting.status" class="{{ setting.player }}">
+  <div *ngSwitchCase="'boot'"><p>Reversi準備中...</p></div>
+
+  <div *ngSwitchCase="'playing'">
+    <p>{{ setting.player === 'black' ? '黒' : '白' }}のターン ({{setting[setting.player].playerName}})</p>
+  </div>
+
+  <div *ngSwitchCase="'overed'">
+    <p>{{winnerText}}</p>
+  </div>
+
+  <p> [黒：{{setting.black.piece}}枚, 白：{{setting.white.piece}}枚]</p>
+</div>

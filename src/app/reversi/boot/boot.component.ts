@@ -8,10 +8,13 @@ import { ReversiService } from '../services/reversi.service';
   styleUrls: ['./boot.component.scss']
 })
 export class BootComponent implements OnInit {
-  p1_type: playerType = 'player'
-  p1_side: side = 'black'
-  p2_type: playerType = 'player'
-  p2_side: side = 'white'
+  p1Name: string = ''
+  p1Type: playerType = 'player'
+  p1Side: side = 'black'
+  
+  p2Name: string = ''
+  p2Type: playerType = 'player'
+  p2Side: side = 'white'
 
   constructor(
     private reversiService: ReversiService
@@ -22,11 +25,11 @@ export class BootComponent implements OnInit {
   
   onChangeSelect(selector: string): void {
     switch(selector) {
-      case 'p1_side':
-        this.p2_side = this.p1_side === 'black' ? 'white' : 'black'
+      case 'p1Side':
+        this.p2Side = this.p1Side === 'black' ? 'white' : 'black'
         break
-      case 'p2_side':
-        this.p1_side = this.p2_side === 'black' ? 'white' : 'black'
+      case 'p2Side':
+        this.p1Side = this.p2Side === 'black' ? 'white' : 'black'
         break
       default:
         break
@@ -34,14 +37,17 @@ export class BootComponent implements OnInit {
   }
 
   startGame(): void {
+    const p1: any = { type: this.p1Type, playerName: this.p1Name!=='' ? this.p1Name : 'プレイヤー1', piece: 2 }
+    const p2: any = { type: this.p2Type, playerName: this.p2Name!=='' ? this.p2Name : 'プレイヤー2', piece: 2 }
 
     const setting: setting = {
-      player: 'p1',
+      player: 'black',
       status: 'playing',
-      p1: { type: this.p1_type, side: this.p1_side, piece: 2 },
-      p2: { type: this.p2_type, side: this.p2_side, piece: 2 },
+      black: this.p1Side==='black' ? p1 : p2,
+      white: this.p1Side==='white' ? p1 : p2,
+      message: null,
     }
-    this.reversiService.putSetting(setting);
+    this.reversiService.putSetting(setting)
     console.log('reversiService.putSetting called!', this.reversiService)
   }
 }

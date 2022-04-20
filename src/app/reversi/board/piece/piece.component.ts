@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { pieceSide } from 'src/app/commonTypes';
 
 @Component({
   selector: 'app-piece',
@@ -6,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./piece.component.scss']
 })
 export class PieceComponent implements OnInit {
-  @Input() className = 'none';
+  @Input() className!: pieceSide
 
   constructor() { }
 
