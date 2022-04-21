@@ -1,0 +1,22 @@
+<h3 mat-dialog-title>{{ data.title }}</h3>
+<mat-dialog-content>
+  {{ data.message }}
+  <br />
+  <p>元の画面に渡す文字列データを入力する</p>
+  <mat-form-field>
+    <mat-label>文字列を</mat-label>
+    <input matInput [(ngModel)]="data.data">
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <table cellspacing="15">
+    <tr>
+      <td>
+        <button mat-raised-button [mat-dialog-close]="data.data" cdkFocusInitial>Ok</button>
+      </td>
+      <td>
+        <button mat-raised-button [mat-dialog-close]="">キャンセル</button>
+      </td>
+    </tr>
+  </table>
+</mat-dialog-actions>

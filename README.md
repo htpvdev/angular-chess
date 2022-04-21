@@ -123,3 +123,6 @@ UPDATE angular.json (3391 bytes)
 UPDATE src/index.html (576 bytes)
 UPDATE src/styles.scss (181 bytes)
 ```
+
+AngularMaterialでのダイアログ実装！！
+参考：https://tkstock.site/2020/04/24/angular-material-ダイアログ-matdialog/

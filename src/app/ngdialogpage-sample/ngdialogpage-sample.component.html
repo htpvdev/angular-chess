@@ -1,0 +1,16 @@
+<h2 class="mat-h2">ダイアログの実装</h2>
+<br /><br />
+Angularでのダイアログ画面の実装はMatdialogで簡単に行うことが可能です。
+ボタンをクリックするとダイアログが表示されます。
+<br /><br />
+<br /><br />
+<div class="button-wrapper">
+  <button mat-raised-button color="primary" (click)="openDialog()">
+    ダイアログを開く
+  </button>
+</div>
+<br /><br />
+<br /><br />
+<li *ngIf="data">
+  あなたがダイアログで入力したのは <strong>{{data}}</strong>です。
+</li>
