@@ -98,3 +98,28 @@ src/ 直下の`app.module.ts`が重要。
 これでエントリーポイント（最初に呼び出されるコンポーネント）であるルートコンポーネントを指定する。
 
 
+Angular Material 導入
+以下のコマンドで、angular materialのライブラリをプロジェクトにインストール
+(Ignit UIはあとで手を出すとして・・・)
+
+```
+PS C:\work\angular-chess> ng add @angular/material
+Node.js version v17.8.0 detected.
+Odd numbered Node.js versions will not enter LTS status and should not be used for production. For more information, please see https://nodejs.org/en/about/releaseases/.
+ℹ Using package manager: npm
+✔ Found compatible package version: @angular/material@13.3.4.
+✔ Package information loaded.
+
+The package @angular/material@13.3.4 will be installed and executed.
+Would you like to proceed? Yes
+✔ Package successfully installed.
+? Choose a prebuilt theme name, or "custom" for a custom theme: Purple/Green       [ Preview: https://material.angular.io?theme=purple-green ]
+? Set up global Angular Material typography styles? Yes
+? Set up browser animations for Angular Material? Yes
+UPDATE package.json (1177 bytes)
+✔ Packages installed successfully.
+UPDATE src/app/app.module.ts (1089 bytes)
+UPDATE angular.json (3391 bytes)
+UPDATE src/index.html (576 bytes)
+UPDATE src/styles.scss (181 bytes)
+```

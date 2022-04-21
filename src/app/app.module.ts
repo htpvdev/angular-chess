@@ -10,6 +10,7 @@ import { BoardComponent } from './reversi/board/board.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { BootComponent } from './reversi/boot/boot.component';
 import { PieceComponent } from './reversi/board/piece/piece.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { PieceComponent } from './reversi/board/piece/piece.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
