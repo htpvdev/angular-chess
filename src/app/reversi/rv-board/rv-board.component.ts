@@ -6,11 +6,11 @@ import { Subscription } from 'rxjs';
 
 
 @Component({
-  selector: 'app-board',
-  templateUrl: './board.component.html',
-  styleUrls: ['./board.component.scss']
+  selector: 'app-rv-board',
+  templateUrl: './rv-board.component.html',
+  styleUrls: ['./rv-board.component.scss']
 })
-export class BoardComponent implements OnInit, OnDestroy {
+export class RvBoardComponent implements OnInit, OnDestroy {
   /**
    * ReversiService の変数の参照を取得するプロパティ
    *
@@ -44,7 +44,7 @@ export class BoardComponent implements OnInit, OnDestroy {
     // サービスで共有しているデータが更新されたら発火されるイベントをキャッチする
     this.subscription = this.reversiService.sharedReversi$.subscribe(
       (reversi) => {
-        console.log('[BoardComponent] current ReversiService recieved.', reversi);
+        console.log('[RvBoardComponent] current ReversiService recieved.', reversi);
         this.reversi = reversi;
       }
     );

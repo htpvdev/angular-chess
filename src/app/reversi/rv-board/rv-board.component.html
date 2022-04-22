@@ -1,7 +1,7 @@
 <table>
   <tr *ngFor="let records of reversi.field; index as y">
     <td *ngFor="let block of records; index as x">
-      <app-piece [className]="block.side" (click)="putPiece(y, x, 'black');"></app-piece>
+      <app-rv-piece [className]="block.side" (click)="putPiece(y, x, 'black');"></app-rv-piece>
     </td>
   </tr>
 </table>

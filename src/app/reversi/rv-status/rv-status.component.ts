@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { setting, side } from 'src/app/commonTypes';
 
 @Component({
-  selector: 'app-status',
-  templateUrl: './status.component.html',
-  styleUrls: ['./status.component.scss']
+  selector: 'app-rv-status',
+  templateUrl: './rv-status.component.html',
+  styleUrls: ['./rv-status.component.scss']
 })
-export class StatusComponent implements OnInit {
+export class RvStatusComponent implements OnInit {
   @Input() setting!: setting
   winnerText!: string
 
