@@ -1,0 +1,47 @@
+<h3 mat-dialog-title>オセロを開始します</h3>
+<mat-dialog-content>
+  <mat-tab-group>
+    <mat-tab *ngFor="let formLabel of formLabelList" label="{{formLabel.title}}">
+      <mat-list>
+        <br />
+        <mat-list-item>
+          <mat-button-toggle-group [(ngModel)]="dialogData[formLabel.type]" aria-label="">
+            <mat-button-toggle value="player" >プレイヤー</mat-button-toggle>
+            <mat-button-toggle value="cpu">CPU</mat-button-toggle>
+          </mat-button-toggle-group>
+        </mat-list-item>
+        <br />
+        <mat-divider></mat-divider>
+        <br />
+        <mat-list-item>
+          <mat-form-field>
+            <mat-label>プレイヤー名</mat-label>
+            <input matInput [(ngModel)]="dialogData[formLabel.name]">
+          </mat-form-field>
+        </mat-list-item>
+        <br />
+        <mat-divider></mat-divider>
+        <br />
+        <mat-list-item>
+          <mat-radio-group [(ngModel)]="dialogData[formLabel.side]" (change)="onChangeSide(formLabel.side)" aria-label="色">
+            <mat-radio-button value="black">黒</mat-radio-button>
+            <mat-radio-button value="white">白</mat-radio-button>
+          </mat-radio-group>
+        </mat-list-item>
+        <br />
+      </mat-list>
+    </mat-tab>
+  </mat-tab-group>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <table cellspacing="15">
+    <tr>
+      <td>
+        <button mat-raised-button [mat-dialog-close]="{}">TOPへ戻る</button>
+      </td>
+      <td>
+        <button mat-raised-button [mat-dialog-close]="dialogData" cdkFocusInitial>ゲーム開始！</button>
+      </td>
+    </tr>
+  </table>
+</mat-dialog-actions>

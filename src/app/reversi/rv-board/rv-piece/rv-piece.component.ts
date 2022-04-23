@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { pieceSide } from 'src/app/commonTypes';
+import { Component, OnInit, Input } from '@angular/core';
+import { PieceSide } from 'src/app/reversi/reversiTypes';
 
 @Component({
   selector: 'app-rv-piece',
@@ -7,11 +7,12 @@ import { pieceSide } from 'src/app/commonTypes';
   styleUrls: ['./rv-piece.component.scss']
 })
 export class RvPieceComponent implements OnInit {
-  @Input() className!: pieceSide
+  // 親コンポーネントから引数を貰うときは、このようにクラス内に引数を定義する
+  // 変数末尾の「!」は、初期値を設定しない場合の型エラーを無視するためのもの。
+  @Input() className!: PieceSide
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }

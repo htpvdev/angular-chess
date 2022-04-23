@@ -1,7 +1,7 @@
 <div *ngIf="setting.message">
   {{ setting.message }}
 </div>
-<div [ngSwitch]="setting.status" class="{{ setting.player }}">
+<mat-card [ngSwitch]="setting.status" class="{{ setting.player }}">
   <div *ngSwitchCase="'boot'"><p>Reversi準備中...</p></div>
 
   <div *ngSwitchCase="'playing'">
@@ -13,4 +13,4 @@
   </div>
 
   <p> [黒：{{setting.black.piece}}枚, 白：{{setting.white.piece}}枚]</p>
-</div>
+</mat-card>

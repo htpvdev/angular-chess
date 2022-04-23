@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { RvStartComponent } from './rv-start.component';
+import { CommonConfirmComponent } from './common-confirm.component';
 
-describe('RvStartComponent', () => {
-  let component: RvStartComponent;
-  let fixture: ComponentFixture<RvStartComponent>;
+describe('CommonConfirmComponent', () => {
+  let component: CommonConfirmComponent;
+  let fixture: ComponentFixture<CommonConfirmComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RvStartComponent ]
+      declarations: [ CommonConfirmComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(RvStartComponent);
+    fixture = TestBed.createComponent(CommonConfirmComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,9 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ReversiService } from '../services/reversi.service';
-import { pieceSide, ReversiType, side } from 'src/app/commonTypes';
-// subscribe を保持するための Subscription を import
+import { Field } from 'src/app/reversi/reversiTypes';
+// Serviceの値が更新されたときのイベントハンドラ
 import { Subscription } from 'rxjs';
-
 
 @Component({
   selector: 'app-rv-board',
@@ -11,57 +10,32 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./rv-board.component.scss']
 })
 export class RvBoardComponent implements OnInit, OnDestroy {
-  /**
-   * ReversiService の変数の参照を取得するプロパティ
-   *
-   * @type {String}
-   */
-  public reversi!: ReversiType
+  /** [ReversiService]内部のデータ[reversi]のプロパティの一部[field]をこの変数に複製する */
+  public field: Field
 
-  /**
-   * subscribe を保持するための Subscription
-   *
-   * @private
-   * @type {Subscription}
-   */
+  /** Subscriptionというモジュールの機能で、[RevesiService]の[reversi.field]の値が更新されたときに呼び出されるfunction?を入れる変数 */
   private subscription!: Subscription;
 
-  /**
-  * コンストラクタ. ServiceReversiComponent のインスタンスを生成する
-  *
-  * @param {ReversiService} reversiService 共通サービス
-  */
-  constructor(private reversiService: ReversiService) {
-    this.reversi = this.reversiService.init()
+  constructor (private reversiService: ReversiService) {
+    this.field = this.reversiService.getField()
   }
 
-  /**
-   * ライフサイクルメソッド｡コンポーネントの初期化で使用する
-   */
   ngOnInit(): void {
-    // this.reversi = this.reversiService.init()
-    // イベント登録
-    // サービスで共有しているデータが更新されたら発火されるイベントをキャッチする
+    // サービスで共有しているデータが更新されたら発火されるイベントを[subscription]にセットする
     this.subscription = this.reversiService.sharedReversi$.subscribe(
       (reversi) => {
-        console.log('[RvBoardComponent] current ReversiService recieved.', reversi);
-        this.reversi = reversi;
+        console.log('[RvBoardComponent] current ReversiService recieved.', reversi)
+        this.field = reversi.field
       }
-    );
+    )
   }
 
-  /**
-   * コンポーネント終了時の処理
-   */
-  ngOnDestroy() {
-    //  リソースリーク防止のため ReversiService から subcribe したオブジェクトを破棄する
+  ngOnDestroy(): void {
+    // リソースリーク防止のため[subscription]オブジェクトを破棄する
     this.subscription.unsubscribe();
   }
 
-  putPiece(y: number, x: number, pieceSide: pieceSide): void {
-
-    this.reversiService.putPiece(y, x, pieceSide);
-    console.log(x, y);
+  putPiece(y: number, x: number): void {
+    this.reversiService.putPiece(y, x)
   }
-
 }

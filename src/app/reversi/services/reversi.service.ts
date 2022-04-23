@@ -1,89 +1,77 @@
 import { Injectable } from '@angular/core';
 import { Reversi } from './reversi';
-import { side, status, setting, field, ReversiType, pieceSide } from 'src/app/commonTypes';
+import { Side, Status, Setting, Field, ReversiType, PieceSide } from 'src/app/reversi/reversiTypes';
 import { Subject } from 'rxjs';
 import { vectors } from 'src/app/commonConst';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ReversiService { 
-  private reversi: Reversi
+export class ReversiService {
+  private reversi: Reversi = new Reversi()
 
-  constructor() {
-    this.reversi = new Reversi()
-  }
+  constructor() { }
 
-  /**
-   * データの変更を通知するためのオブジェクト
-   *
-   * @private
-   * @memberof ReversiService
-   */
+  /** データの変更を通知するためのオブジェクト */
   private sharedReversi = new Subject<Reversi>()
 
-  /**
-   * Subscribe するためのプロパティ
-   * `- コンポーネント間で共有するためのプロパティ
-   *
-   * @memberof ReversiService
-   */
+  /** Subscribe するためのプロパティ - コンポーネント間で共有するためのプロパティ */
   public sharedReversi$ = this.sharedReversi.asObservable()
 
-  /**
-   * データの更新イベント
-   *
-   * @param {Reversi} updateed 更新データ
-   * @memberof ReversiService
-   */
+  /** データの更新イベント */
   public onNotifySharedDataChanged(updateed: Reversi) {
     console.log('[ReversiService] onNotifySharedDataChanged fired.')
     this.sharedReversi.next(updateed)
   }
 
-  public init() :ReversiType {
+  public init(): ReversiType {
     return this.reversi
   }
 
-  public getField() :field {
+  public destroy(): void {
+    this.reversi = new Reversi()
+  }
+
+  public getField(): Field {
     return this.reversi.field
   }
 
-  public putPiece(y: number, x: number, pieceSide: pieceSide) :void {
+  public putPiece(y: number, x: number): void {
 
-    if (this._getPutPieceInfo(y, x, this.reversi.setting.player)) {
-      this.reversi.field = this._turnPieces(y, x, this.reversi.setting.player)
+    // if (this._getPutPieceInfo(y, x, this.reversi.setting.player)) {
+    //   this.reversi.field = this._turnPieces(y, x, this.reversi.setting.player)
 
-    } else {
-      this._setMessage('ここには置けませんねん。')
-    }
-    // this.reversi.field[y][x].side = currentPlayer
-    // this.reversi.setting.player = currentPlayer==='black'? 'white':'black'
+    // } else {
+    //   this._setMessage('ここには置けませんねん。')
+    // }
+    const currentPlayer = this.reversi.setting.player
+    this.reversi.field[y][x].side = currentPlayer
+    this.reversi.setting.player = currentPlayer==='black'? 'white':'black'
   }
 
-  public putField(field: field) :void {
+  public putField(field: Field): void {
       this.reversi.field = field
   }
 
-  public getSetting() :setting {
+  public getSetting(): Setting {
     return this.reversi.setting
   }
 
-  public putSetting(setting: setting) :void {
+  public putSetting(setting: Setting): void {
     this.reversi.setting = setting
   }
 
-  public getStatus() :status {
+  public getStatus(): Status {
     return this.reversi.setting.status
   }
 
   //#region 内部関数(非公開関数)
 
-  private _setMessage(message: null|string = null) :void {
+  private _setMessage(message: null|string = null): void {
     this.reversi.setting.message = message
   }
 
-  private _getPutPieceInfo(y: number, x: number, putSide: side) :any {
+  private _getPutPieceInfo(y: number, x: number, putSide: Side): any {
     // const enemySide: side = putSide==='black' ? 'white':'black'
 
     // for (const vector of vectors) {
@@ -112,7 +100,7 @@ export class ReversiService {
     return true
   }
 
-  private _turnPieces(y: number, x: number, pieceSide: pieceSide) :field {
+  private _turnPieces(y: number, x: number, pieceSide: PieceSide): Field {
     return this.reversi.field
   }
 

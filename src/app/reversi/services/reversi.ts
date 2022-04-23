@@ -1,8 +1,8 @@
-import { setting, field } from "../../commonTypes"
+import { Setting, Field } from "../reversiTypes"
 
 export class Reversi
 {
-  setting: setting = {
+  setting: Setting = {
     player: 'black',
     status: 'boot',
     black: { type: 'player', playerName: 'p1', piece: 2 },
@@ -10,7 +10,7 @@ export class Reversi
     message: null,
   }
 
-  field: field = [
+  field: Field = [
     [
       { side: 'none', point: 0},
       { side: 'none', point: 1},

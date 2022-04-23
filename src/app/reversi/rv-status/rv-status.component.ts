@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { setting, side } from 'src/app/commonTypes';
+import { Setting } from 'src/app/reversi/reversiTypes';
 
 @Component({
   selector: 'app-rv-status',
@@ -7,7 +7,7 @@ import { setting, side } from 'src/app/commonTypes';
   styleUrls: ['./rv-status.component.scss']
 })
 export class RvStatusComponent implements OnInit {
-  @Input() setting!: setting
+  @Input() setting!: Setting
   winnerText!: string
 
   constructor() { }
@@ -26,5 +26,4 @@ export class RvStatusComponent implements OnInit {
       }
     }
   }
-
 }
