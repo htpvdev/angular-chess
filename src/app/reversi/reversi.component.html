@@ -1,4 +1,6 @@
 <h2 class="mat-h2">Reversi</h2>
 <button (click)="leaveGame()" mat-raised-button color="primary">TOPへ戻る</button>
-<app-rv-status [setting]="reversi.setting"></app-rv-status>
-<app-rv-board></app-rv-board>
+<div fxLayout="row" style="margin-top: 20px;">
+  <app-rv-board></app-rv-board>
+  <app-rv-status [setting]="reversi.setting"></app-rv-status>
+</div>

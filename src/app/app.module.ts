@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 // [(ngModel)]を使うためのモジュール
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
+// AngularMaterialのスタイル調整ライブラリflex-layout
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 // スタイルにアニメーションを導入するモジュール(AngularMaterialインストール時デフォルトで入る)
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,6 +19,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 
 // Components
@@ -46,6 +49,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
+    FlexLayoutModule,
     // Angular Material のうち利用する部品はここに記述する必要がある
     MatButtonModule,
     MatButtonToggleModule,
@@ -55,6 +59,7 @@ import { WelcomeComponent } from './welcome/welcome.component';
     MatInputModule,
     MatListModule,
     MatRadioModule,
+    MatSnackBarModule,
     MatTabsModule,
   ],
   providers: [],

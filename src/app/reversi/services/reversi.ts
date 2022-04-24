@@ -7,7 +7,6 @@ export class Reversi
     status: 'boot',
     black: { type: 'player', playerName: 'p1', piece: 2 },
     white: { type: 'player', playerName: 'p2', piece: 2 },
-    message: null,
   }
 
   field: Field = [

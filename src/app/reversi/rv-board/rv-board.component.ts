@@ -3,6 +3,11 @@ import { ReversiService } from '../services/reversi.service';
 import { Field } from 'src/app/reversi/reversiTypes';
 // Serviceの値が更新されたときのイベントハンドラ
 import { Subscription } from 'rxjs';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { cantPutPieceMsg } from 'src/app/commonConst';
+import { CommonDialogInfo } from 'src/app/commonTypes';
+import { MatDialog } from '@angular/material/dialog';
+import { CommonConfirmComponent } from 'src/app/common-confirm/common-confirm.component';
 
 @Component({
   selector: 'app-rv-board',
@@ -16,7 +21,11 @@ export class RvBoardComponent implements OnInit, OnDestroy {
   /** Subscriptionというモジュールの機能で、[RevesiService]の[reversi.field]の値が更新されたときに呼び出されるfunction?を入れる変数 */
   private subscription!: Subscription;
 
-  constructor (private reversiService: ReversiService) {
+  constructor (
+    private reversiService: ReversiService,
+    private _snackBar: MatSnackBar,
+    public dialog: MatDialog,
+  ) {
     this.field = this.reversiService.getField()
   }
 
@@ -26,6 +35,7 @@ export class RvBoardComponent implements OnInit, OnDestroy {
       (reversi) => {
         console.log('[RvBoardComponent] current ReversiService recieved.', reversi)
         this.field = reversi.field
+        // console.log('[boardComponent] getField called', this.field)
       }
     )
   }
@@ -36,6 +46,46 @@ export class RvBoardComponent implements OnInit, OnDestroy {
   }
 
   putPiece(y: number, x: number): void {
-    this.reversiService.putPiece(y, x)
+    let turnedPieceCount: number = 0
+    const putSide = this.reversiService.getCurrentPlayer()
+    if (this.field[y][x].side === 'none') {
+      console.log('boardcomponent.putPiece to reversiService.putPiece', y, x, putSide, this.field)
+      turnedPieceCount = this.reversiService.putPiece(y, x, putSide)
+      this.ngOnInit()
+    }
+
+    if (turnedPieceCount === 0) {
+      this._snackBar.open(cantPutPieceMsg, 'OK')
+    } else if (this.reversiService.getStatus() === 'overed') {
+      const dialogInfo: CommonDialogInfo = {
+        data: {
+          title: '結果発表！',
+          messageList: [
+            'aaaaaaaaaaaaaaaaaaaaa',
+          ],
+          createCancelButton: false,
+        },
+        // height: "300px",
+        // width: "500px",
+        disableClose: true,
+      }
+      // ダイアログ表示処理
+      this.dialog.open(CommonConfirmComponent, dialogInfo)
+    } else if (this.reversiService.getCurrentPlayer() === putSide) {
+      const dialogInfo: CommonDialogInfo = {
+        data: {
+          title: '打つ手なし！',
+          messageList: [
+            (putSide==='black'? '白':'黒') + 'のターンはスキップされました',
+          ],
+          createCancelButton: false,
+        },
+        // height: "300px",
+        // width: "500px",
+        disableClose: false,
+      }
+      // ダイアログ表示処理
+      this.dialog.open(CommonConfirmComponent, dialogInfo)
+    }
   }
 }

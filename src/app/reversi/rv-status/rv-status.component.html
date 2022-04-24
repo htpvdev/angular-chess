@@ -1,16 +1,14 @@
-<div *ngIf="setting.message">
-  {{ setting.message }}
-</div>
 <mat-card [ngSwitch]="setting.status" class="{{ setting.player }}">
-  <div *ngSwitchCase="'boot'"><p>Reversi準備中...</p></div>
+  <mat-list>
+    <mat-list-item *ngSwitchCase="'boot'">オセロ準備中...</mat-list-item>
+    <mat-list-item *ngSwitchCase="'playing'">
+      [ {{ setting.player === 'black' ? '黒' : '白' }} ] {{setting[setting.player].playerName}}のターン
+    </mat-list-item>
+    <mat-list-item *ngSwitchCase="'overed'">{{winnerText}}</mat-list-item>
 
-  <div *ngSwitchCase="'playing'">
-    <p>{{ setting.player === 'black' ? '黒' : '白' }}のターン ({{setting[setting.player].playerName}})</p>
-  </div>
+    <mat-divider></mat-divider>
 
-  <div *ngSwitchCase="'overed'">
-    <p>{{winnerText}}</p>
-  </div>
-
-  <p> [黒：{{setting.black.piece}}枚, 白：{{setting.white.piece}}枚]</p>
+    <mat-list-item>黒：{{setting.black.piece}}枚</mat-list-item>
+    <mat-list-item>白：{{setting.white.piece}}枚</mat-list-item>
+  </mat-list>
 </mat-card>

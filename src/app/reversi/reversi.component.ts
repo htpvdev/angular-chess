@@ -38,6 +38,9 @@ export class ReversiComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    for (let i = 1; i < 1; i ++) {
+      console.log(i)
+    }
     // Serviceのイベント登録。サービスで共有しているデータが更新されたら発火されるイベントをキャッチする
     this.subscription = this.reversiService.sharedReversi$.subscribe(
       (reversi) => {
@@ -63,9 +66,9 @@ export class ReversiComponent implements OnInit, OnDestroy {
       if (dialogData.p1Type !== undefined) {
         this._startGame(dialogData)
       } else {
-        this._backToTopPage()
+        this._reaveReversiPage()
       }
-    });
+    })
   }
 
   ngOnDestroy(): void {
@@ -91,34 +94,29 @@ export class ReversiComponent implements OnInit, OnDestroy {
     this.dialog.open(CommonConfirmComponent, dialogInfo
     ).afterClosed().subscribe((isOK) => {
       if (isOK) {
-        this._backToTopPage()
+        this._reaveReversiPage()
       }
     })
   }
 
-  isBoot() :boolean {
-    return this.reversiService.getStatus() === 'boot'
-  }
-
   //#region 内部関数
   _startGame(dialogData: any): void {
-    const p1 = { type: dialogData.p1Type, playerName: dialogData.p1Name!=='' ? dialogData.p1Name : 'プレイヤー1', piece: 2 }
-    const p2 = { type: dialogData.p2Type, playerName: dialogData.p2Name!=='' ? dialogData.p2Name : 'プレイヤー2', piece: 2 }
+    const p1 = { type: dialogData.p1Type, playerName: dialogData.p1Name!=null ? dialogData.p1Name : 'プレイヤー1', piece: 2 }
+    const p2 = { type: dialogData.p2Type, playerName: dialogData.p2Name!=null ? dialogData.p2Name : 'プレイヤー2', piece: 2 }
 
     const setting: Setting = {
       player: 'black',
       status: 'playing',
       black: dialogData.p1Side==='black' ? p1 : p2,
       white: dialogData.p1Side==='white' ? p1 : p2,
-      message: null,
     }
     this.reversiService.putSetting(setting)
     console.log('[ReversiComponent._startGame] reversiService.putSetting called.')
   }
 
-  _backToTopPage() :void {
+  _reaveReversiPage(url: string = '') :void {
     this.reversiService.destroy()
-    this.router.navigateByUrl('')
+    this.router.navigateByUrl(url)
   }
   //#endregion
 }

@@ -16,7 +16,6 @@ export interface Setting {
   status: Status,
   black: { type: PlayerType, playerName: string, piece: number },
   white: { type: PlayerType, playerName: string, piece: number },
-  message: null|string
 }
 
 /**  */
@@ -26,4 +25,17 @@ export type Field = Array<Array<{side: PieceSide, point: number}>>
 export interface ReversiType {
   setting: Setting,
   field: Field,
+}
+
+/**  */
+export interface PieceInfo {
+  black: number,
+  white: number,
+  none: number,
+}
+
+/** */
+export interface CalcFieldInfo {
+  calcField: Field,
+  turnedPieceCount: number,
 }

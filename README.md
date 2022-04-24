@@ -123,3 +123,28 @@ UPDATE angular.json (3391 bytes)
 UPDATE src/index.html (576 bytes)
 UPDATE src/styles.scss (181 bytes)
 ```
+
+AngularMaterial上で、細かなスタイル調整に使うためのflex-layoutをインストールした。
+- 公式：https://github.com/angular/flex-layout
+- `npm i -s @angular/flex-layout @angular/cdk`
+- 具体的な使い方参考
+  - https://dev.classmethod.jp/articles/angular-flex-layout/
+
+
+お役立ち神サイト
+- Service実装。スーパー役に立った
+  - https://qiita.com/ksh-fthr/items/e43dd37bff2e51e95a59
+- AngularMaterialダイアログ実装
+  - https://tkstock.site/2020/04/24/angular-material-ダイアログ-matdialog/
+- Table関係のナンチャラ
+  - https://nanbu.marune205.net/2022/04/angular-material-table.html?m=1
+- Flex-Layout と Angular Material でグッバイCSS – 検索フォームを作る
+  - https://dev.classmethod.jp/articles/flex-layout-angular-material-goodbye-css/
+
+Angular関係ないけど・・・・
+オセロの各マス目の駒情報をもつReversi.fieldを操作するときに、コピーしたfieldをいじるとコピー元も連動して
+動いてしまい、困っていたので、ディープコピーを実装することに。
+⇒軽く調べて、lodashというライブラリを導入することにした。
+- https://prograshi.com/language/javascript/shallow-copy-and-deep-copy/#:~:text=ディープコピーとは、内側,ことが基本となります。
+- https://zenn.dev/keita_hino/articles/2e91c761f17ce8
+- https://anken-hyouban.com/blog/2021/09/19/lodash/
